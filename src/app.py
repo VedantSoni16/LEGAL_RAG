@@ -2,7 +2,7 @@ import os
 import streamlit as st
 
 # Import your pristine backend engine class
-from query_engine import LegalRagEngine
+from src.query_engine import LegalRagEngine
 
 # Initialize the backend engine once across the web session using st.cache_resource
 @st.cache_resource
