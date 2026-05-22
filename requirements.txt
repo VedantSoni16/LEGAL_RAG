@@ -1,0 +1,9 @@
+streamlit
+pandas
+pypdf
+chromadb
+langchain-chroma
+langchain-huggingface
+sentence-transformers
+google-genai
+groq
