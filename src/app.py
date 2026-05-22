@@ -1,8 +1,14 @@
 import os
+import sys
 import streamlit as st
 
-# Import your pristine backend engine class
-from src.query_engine import LegalRagEngine
+# 🌟 THE FOOLPROOF PATH FIX: Get the absolute path of the directory containing app.py (the 'src' folder)
+current_dir = os.path.dirname(os.path.abspath(__file__))
+if current_dir not in sys.path:
+    sys.path.append(current_dir)
+
+# Now you can import query_engine directly with absolute zero path issues!
+from query_engine import LegalRagEngine
 
 # Initialize the backend engine once across the web session using st.cache_resource
 @st.cache_resource
