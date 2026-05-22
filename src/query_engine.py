@@ -11,25 +11,19 @@ CHROMA_DIR = "chroma_db"
 
 class LegalRagEngine:
     def __init__(self):
+        
         print("🤖 Initializing Retrieval Core Framework...")
         
-        # 🌟 PRODUCTION METADATA SAFEGUARD: 
-        # Checks background cloud systems before initializing API modules
-        if "GEMINI_API_KEY" not in os.environ:
-            # Fallback for local terminal executions only
-            os.environ["GEMINI_API_KEY"] = "AIzaSyDSjWKw03o1mZIq1yOoQca5ILXVlh65xo0"
-            
+        # Production ready: No default key values allowed
         self.embedding_engine = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
         
-        # Connect back to the persistent Chroma directory
         self.vector_db = Chroma(
             persist_directory=CHROMA_DIR, 
             embedding_function=self.embedding_engine
         )
         
-        # Initialize the modern Google GenAI Client
         self.ai_client = genai.Client()
-        self.llm_model = "gemini-2.5-flash" 
+        self.llm_model = "gemini-2.5-flash"
 
     def retrieve_context(self, user_query, domain):
         """Searches the local database applying strict metadata routing filters based on chosen domain."""
@@ -108,10 +102,7 @@ class LegalRagEngine:
 # --- Simple CLI Tester Loop ---
 if __name__ == "__main__":
     # Fallback key loaders logic for local verification testing execution routines
-    if "GEMINI_API_KEY" not in os.environ or os.environ["GEMINI_API_KEY"] == "":
-        os.environ["GEMINI_API_KEY"] = "AIzaSyDSjWKw03o1mZIq1yOoQca5ILXVlh65xo0"
-    if "GROQ_API_KEY" not in os.environ or os.environ["GROQ_API_KEY"] == "":
-        os.environ["GROQ_API_KEY"] = "gsk_YourActualGroqKeyStringHere..." # Put your real key string here for local testing
+    
 
     engine = LegalRagEngine()
     
