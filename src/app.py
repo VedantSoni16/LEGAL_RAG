@@ -21,7 +21,7 @@ rag_core = init_backend_core()
 # 🌟 "centered" layout packs your chat window tightly right in the middle of wide displays
 st.set_page_config(page_title="Indian Legal Assistant", layout="centered", page_icon="⚖️")
 
-st.title("⚖️ Indian Legal Framework RAG Assistant")
+st.title("⚖️ Indian Legal Framework  Assistant")
 st.caption("Advanced Domain-Isolated Multi-Bot Retrieval System (BNS, IPC, BNSS, BSA & Land Laws)")
 st.write("---")
 
