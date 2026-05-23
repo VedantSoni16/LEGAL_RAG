@@ -29,8 +29,8 @@ if "messages" not in st.session_state:
     st.session_state.messages = []
 
 # --- 2. Sidebar Configuration Window ---
-st.sidebar.header("🤖 Chatbot Domain Routing")
-st.sidebar.write("All domains visible at a glance. Active domain highlighted:")
+st.sidebar.header("Legal Domain")
+
 
 # Using st.radio instead of st.selectbox so both options remain permanently visible!
 chosen_domain = st.sidebar.radio(
