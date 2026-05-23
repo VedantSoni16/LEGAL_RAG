@@ -1,0 +1,16 @@
+# Block API keys and local configuration secrets
+.env
+secrets.toml
+
+# Block Python environment cache files
+__pycache__/
+*.pyc
+
+# Block large embedding model weights stored locally by Hugging Face
+.cache/
+huggingface_hub/
+
+# NOTE: Do NOT add chroma_db/ to this file. 
+# We WANT Git to upload chroma_db so the cloud server can read your vector store!
+.env
+echo "eval_results/" >> .gitignore
