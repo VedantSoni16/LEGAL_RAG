@@ -5,6 +5,8 @@ from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
 from google import genai
 from google.genai import types
+from dotenv import load_dotenv
+load_dotenv()
 
 # --- Configurations ---
 CHROMA_DIR = "chroma_db"
@@ -29,7 +31,7 @@ class LegalRagEngine:
         """Searches the local database applying strict metadata routing filters based on chosen domain."""
         print(f"🔍 Searching Vector Store inside [{domain.upper()}] space...")
         search_filter = {"domain": domain}
-        docs = self.vector_db.similarity_search(user_query, k=4, filter=search_filter)
+        docs = self.vector_db.similarity_search(user_query, k=6, filter=search_filter)
         return docs
 
     def generate_answer(self, user_query, domain):

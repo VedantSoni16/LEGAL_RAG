@@ -44,7 +44,7 @@ def load_csv_to_langchain_docs(file_name, domain_label):
         # Enriched metadata tracking layout (Crucial for routing and citations later)
         metadata = {
             "act": str(row['act']),
-            "section_id": str(row['section_id']),
+            "section_id": str(row['section_id']).replace(".0", "").strip(),
             "domain": domain_label  # 'criminal' or 'land'
         }
         
@@ -59,7 +59,7 @@ def build_vector_database():
     embedding_engine = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
     
     # Text splitter config: Keeps chunks tightly packed with context overlaps
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=600, chunk_overlap=100)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=150)
     
     all_processed_chunks = []
     
