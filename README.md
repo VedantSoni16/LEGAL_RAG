@@ -139,7 +139,7 @@ User query
     ↓
 Domain filter (criminal / land)
     ↓
-ChromaDB similarity search (k=8, metadata-filtered)
+ChromaDB similarity search (k=6, metadata-filtered)
     ↓
 Top-k chunks + metadata (act, section_id)
     ↓
